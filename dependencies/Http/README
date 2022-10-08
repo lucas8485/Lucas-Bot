@@ -1,0 +1,1 @@
+请编译带有openssl和zlib的libcurl库，并将动态链接库放置在lib文件夹下
