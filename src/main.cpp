@@ -63,6 +63,10 @@ public:
                                                               InstructionProcessor::touhouProject);
       MessageDispatcher::registerInstructionProcedure(MessageDispatcher::InstructionType::SignOn,
                                                               InstructionProcessor::signOn);
+      MessageDispatcher::registerInstructionProcedure(MessageDispatcher::InstructionType::Menu,
+                                                              InstructionProcessor::menu);
+      MessageDispatcher::registerInstructionProcedure(MessageDispatcher::InstructionType::About,
+                                                              InstructionProcessor::about);
       MessageDispatcher::registerInstructionProcedure(MessageDispatcher::InstructionType::OtherMessage,
                                                       InstructionProcessor::otherMessage);
       // 添加消息监听事件

@@ -300,7 +300,7 @@ void InstructionProcessor::signOn(const MessageDispatcher::SingleInstruction &in
                    "你获得了 %d 个铜钱\n"
                    "你现在有 %d 个铜钱\n"
                    "你已经连续签到 %d 天", copperCoinsDifference, currentCopperCoins, person.continuousSignOnDays());
-        group.sendMessage(MiraiCP::At(instruction.event.sender.id()),MiraiCP::PlainText(s));
+        group.sendMessage(MiraiCP::At(instruction.event.sender.id()), MiraiCP::PlainText(s));
     }
 }
 
@@ -318,5 +318,67 @@ void InstructionProcessor::otherMessage(const MessageDispatcher::SingleInstructi
         // 计数
         person.increaseSpeakCount();
     }
+}
+
+void InstructionProcessor::menu(const MessageDispatcher::SingleInstruction &instruction) {
+    auto group = instruction.event.group;
+    group.sendMessage(MiraiCP::PlainText(std::string{"菜单：\n"
+                                         "1.复读\n"
+                                         "使用方法：\n"
+                                         ".复读 [内容]\n"
+                                         "2.营销号\n"
+                                         "使用方法：\n"
+                                         ".营销号 [事物]\n"
+                                         ".营销号 [事物] [别称]\n"
+                                         ".营销号 [事物] [事件] [结果]\n"
+                                         "3.说废话\n"
+                                         "使用方法：\n"
+                                         ".废话 [主题]\n"
+                                         "4.发病\n"
+                                         "使用方法：\n"
+                                         ".发病 [主题]\n"
+                                         "5.倒垃圾\n"
+                                         "使用方法：\n"
+                                         ".倒垃圾\n"
+                                         "6.疯狂星期四V我50\n"
+                                         "使用方法：\n"
+                                         ".kfc\n"
+                                         "7.东方Project图片生成\n"
+                                         "使用方法：\n"
+                                         ".东方\n"
+                                         ".车万\n"
+                                         "8.签到\n"
+                                         "使用方法：\n"
+                                         ".签到\n"
+                                         ".打卡\n"
+                                         "9.钓鱼 [开发中]\n"
+                                         "使用方法：\n"
+                                         ".钓鱼\n"
+                                         "10.打工 [开发中]\n"
+                                         "使用方法：\n"
+                                         ".打工\n"
+                                         "11.五千兆表情包生成 [开发中]\n"
+                                         "使用方法：\n"
+                                         ".五千兆 [上排文字] [下排文字]\n"
+                                         "12.菜单"
+                                         "使用方法：\n"
+                                         ".菜单\n"
+                                         "13.关于\n"
+                                         "使用方法：\n"
+                                         ".关于\n"}));
+}
+
+void InstructionProcessor::about(const MessageDispatcher::SingleInstruction &instruction) {
+    auto group = instruction.event.group;
+    group.sendMessage(MiraiCP::PlainText(std::string{"作者：Lucas\n"
+                                                     "项目地址：\n"
+                                                     "https://gitme.fun/lucas8485/Lucas-Bot\n"
+                                                     "遵循AGPLv3协议开源\n"
+                                                     "使用的第三方库：\n"
+                                                     "MiraiCP\n"
+                                                     "nlohmann/json\n"
+                                                     "libcurl\n"
+                                                     "utf8-for-cpp"}));
+
 }
 
